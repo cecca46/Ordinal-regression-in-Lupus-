@@ -3,7 +3,6 @@
 #Perfom RMA normalization separately on the 2 different platforms 
 #Merge the normalized result into a single expression matrix
 
-rm(list = ls())
 library(GEOquery)
 library(affyio)
 library(affy)
@@ -20,22 +19,22 @@ require(ggplot2)
 #Getting the GEO dataset and extracting sample expression
 get_GEO <- function(geoFile){
     
-    main_path <- "~/Desktop/"
+    main_path <- "RESULT/"
     # Set working directory for download
     setwd(main_path)
     getGEOSuppFiles(geoFile)
-    setwd(paste0(main_path,geoFile,collapse = "/"))
+    setwd(geoFile)
     untar("GSE104948_RAW.tar", exdir = "data")
     cels = list.files("data/", pattern = "gz")
     # sometiles, it is 'CEL', you need to check it first
-    setwd("~/Desktop/GSE104948/data/")
+    setwd("data/")
     f <- list.files(pattern = "CEL.gz")
     ff <- split(f, sapply(f, function(x) read.celfile.header(x)$cdfName))
     chip_plus2 <- ff[1]
     chip_u133A <- ff[2]
     chip_plus2 <- as.character(unlist(chip_plus2))
     chip_u133A <- as.character(unlist(chip_u133A))
-    setwd(paste0(main_path,geoFile,collapse = "/"))
+    setwd("..")
     sapply(paste("data", cels, sep = "/"), gunzip)
     chip_plus2 <- gsub(".gz", "", chip_plus2)
     chip_u133A <- gsub(".gz", "", chip_u133A)
@@ -52,7 +51,7 @@ get_GEO <- function(geoFile){
 #Perform RMA norm and saves the results in two .csv files according to the platform used to process the samples
 RMA_norm <- function(samples, csvName, database){
     
-    setwd("~/Desktop/GSE104948/data/")
+    setwd("data/")
     raw.data = ReadAffy(verbose = FALSE, filenames = samples)
     # perform RMA normalization (log2)
     data.rma.norm = rma(raw.data)
@@ -91,13 +90,17 @@ RMA_norm <- function(samples, csvName, database){
     out2 = merge(geneNames, out , by.x = "entryID", by.y = "ENTREZID")
     out2[1:5, 1:5]
     #Writing result for one of the platform to csv
-    write.csv(out2, paste0("~/Desktop/",csvName, collapse = ""))
+    setwd("../../..")
+    write.csv(out2, paste0("RESULT/",csvName, collapse = ""))
+    setwd("RESULT/GSE104948/")
     
     
 }
 
 #Function that reads the two normalised datasets and merge them together
 aggregate_dataset <- function(pathToData1, pathToData2, pathToResult){
+    setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+    
     
     x <- read.csv(pathToData1)
     y <- read.csv(pathToData2)
@@ -106,7 +109,7 @@ aggregate_dataset <- function(pathToData1, pathToData2, pathToResult){
     write.csv(z, pathToResult)
     
     #reding clinical info and subselecting the samples for which clinical info are available
-    clin <- read.csv('~/Desktop/MergedDatasetsInfo.csv')
+    clin <- read.csv('MergedDatasetsInfo.csv')
     samples <- as.character(clin$Samples)
     rownames(z) <- z[,1]
     z <- z[,-1]
@@ -116,10 +119,6 @@ aggregate_dataset <- function(pathToData1, pathToData2, pathToResult){
 }
     
 
-#In line code to start analysis 
-
-get_GEO("GSE104948")
-aggregate_dataset("~/Desktop/PlatformU133.csv", "~/Desktop/Platform2Plus.csv", "~/Desktop/MergedDatasets.csv")
 
 
 

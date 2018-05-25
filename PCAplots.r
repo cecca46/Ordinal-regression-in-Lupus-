@@ -1,6 +1,5 @@
 
 #Wrapper functions to inspect the data and look for batch effect
-rm(list = ls())
 library(cluster)
 library(ggfortify)
 
@@ -56,14 +55,7 @@ box_plot <- function(exp_data, las = 2){
     boxplot( exp_data, las = las )
 }
 
-#In line code to plot the PCA plots
-edata <- read.csv('~/Desktop/MergedDatasets.csv')
-pheno <- read.csv('~/Desktop/MergedDatasetsInfo.csv')
-rownames(edata) <- edata[,1]
-edata <- edata[,-1]
-variance_plot(edata)
-pca_plot(edata, pheno$Group)
-#The 3 listed controls cluster with Disease samples as they come from the same platform
-pca_plot(edata, pheno$Platform)
+
+
 
 
