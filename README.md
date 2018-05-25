@@ -1,1 +1,1 @@
-# Ordinal-regression-in-Lupus-
+# Ordinal regression in Lupus samples
