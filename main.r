@@ -84,7 +84,12 @@ dev.off()
 write.csv(batch_corrected, "RESULT/AdjustedLupus.csv")
 
 
+#FINISH CORRECTING THE DATA ----------------------------------------------
 
+
+#START ORDINAL REGRESSION ANALYSIS --------------------------------------
+
+batch_corrected <- t(batch_corrected)
 
 
 
