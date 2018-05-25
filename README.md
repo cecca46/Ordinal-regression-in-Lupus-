@@ -2,7 +2,7 @@
 
 This repository contains the following files: 
 
-`startAnalysis.r`: Main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a RESULT folder to store all the results (plots included) from running the analysis.
+`main.r`: Main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a RESULT folder to store all the results (plots included) from running the analysis.
 
 `RMA.r`: Function to perform RMA normalization separately on the 2 different platforms contained in the dataset and to merge the normalized results into a single expression matrix.
 
