@@ -308,15 +308,16 @@ $(document).ready(function () {
 
 <div id="repository-structure" class="section level2">
 <h2>Repository Structure</h2>
-<p><strong>startAnalysis.r</strong>: main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a RESULT folder to store all the results (plots included) from running the analysis.</p>
-<p><strong>RMA.r</strong>: function to perform RMA normalization separately on the 2 different platforms contained in the dataset and to merge the normalized results into a single expression matrix.</p>
-<p><strong>PCAplots.r</strong>: series of wrapper functions to inspect the data and look for batch effect problems.</p>
-<p><strong>QuantileNorm.r</strong>: function to quantile normalize the expression matrix.</p>
-<p><strong>Combat.r</strong>: function to mitigate the bach effect introduced by the use of different platforms.</p>
-<p><strong>MergedDatasetsInfo.csv</strong>: clinical information, publicaly available from <a href="https://www.nephroseq.org/resource/login.html">Nephroseq</a></p>
+<p>This repository contains the following files:</p>
+<p><code>startAnalysis.r</code>: main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a RESULT folder to store all the results (plots included) from running the analysis.</p>
+<p><code>RMA.r</code>: function to perform RMA normalization separately on the 2 different platforms contained in the dataset and to merge the normalized results into a single expression matrix.</p>
+<p><code>PCAplots.r</code>: series of wrapper functions to inspect the data and look for batch effect problems.</p>
+<p><code>QuantileNorm.r</code>: function to quantile normalize the expression matrix.</p>
+<p><code>Combat.r</code>: function to mitigate the bach effect introduced by the use of different platforms.</p>
+<p><code>MergedDatasetsInfo.csv</code>: clinical information, publically available from <a href="https://www.nephroseq.org/resource/login.html">Nephroseq</a></p>
 </div>
-<div id="identification-of-genes-associated-to-severity-of-kidney-damage-in-systemic-lupus-erythematous" class="section level1">
-<h1>Identification of genes associated to severity of kidney damage in Systemic Lupus Erythematous</h1>
+<div id="identification-of-genes-associated-to-severity-of-kidney-damage-in-systemic-lupus-erythematous" class="section level2">
+<h2>Identification of genes associated to severity of kidney damage in Systemic Lupus Erythematous</h2>
 <p>The search for disease-associated genes and biomarkers relies on the discovery of statistical links between gene expression and disease phenotype. In most methods, clinical metrics are treated as binary data (e.g., disease vs. control). However, in many cases, even the most basic clinical data provide a richer description of the disease process. Systematic integration of ordinal clinical metrics (such as Tumor stage, neurodegeneration levels or more in general measurements of disease progression) with gene expression data may lead to identifying a subset of the genes that play a critical role in disease progression. Once experimentally validated, these genes could be important candidates for therapeutic targets. To develop an approach that can take advantage of information on the severity of the disease, we analyzed gene expression data from glomeruli tissues in Systemic Lupus Erythematous (SLE) and Living Donors (LD). Patients who suffer of SLE can be classified in five categories that, identified using the estimated filtration rate (eGFR) numbers, depict the severity and pattern of decline of the kidney filtering function.</p>
 <div id="data" class="section level3">
 <h3>Data</h3>

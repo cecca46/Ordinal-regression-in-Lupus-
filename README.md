@@ -2,17 +2,17 @@
 
 This repository contains the following files: 
 
-**startAnalysis.r**: main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a RESULT folder to store all the results (plots included) from running the analysis.
+`startAnalysis.r`: Main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a RESULT folder to store all the results (plots included) from running the analysis.
 
-**RMA.r**: function to perform RMA normalization separately on the 2 different platforms contained in the dataset and to merge the normalized results into a single expression matrix.
+`RMA.r`: Function to perform RMA normalization separately on the 2 different platforms contained in the dataset and to merge the normalized results into a single expression matrix.
 
-**PCAplots.r**: series of wrapper functions to inspect the data and look for batch effect problems.
+`PCAplots.r`: Series of wrapper functions to inspect the data and look for batch effect problems.
 
-**QuantileNorm.r**: function to quantile normalize the expression matrix.
+`QuantileNorm.r`: Function to quantile normalize the expression matrix.
 
-**Combat.r**: function to mitigate the bach effect introduced by the use of different platforms.
+`Combat.r`: Function to mitigate the bach effect introduced by the use of different platforms.
 
-**MergedDatasetsInfo.csv**: clinical information, publicaly available from [Nephroseq](https://www.nephroseq.org/resource/login.html)
+`MergedDatasetsInfo.csv`: Clinical information, publically available from [Nephroseq](https://www.nephroseq.org/resource/login.html)
 
 
 
