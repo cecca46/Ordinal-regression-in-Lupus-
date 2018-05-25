@@ -82,3 +82,12 @@ dev.off()
 
 #Save the batch corrected results for Ordinal regression analysis 
 write.csv(batch_corrected, "RESULT/AdjustedLupus.csv")
+
+
+
+
+
+
+
+#AT THE END! RESET USER WORKING ENVIRONMENT AS BEFORE RUNNING THIS FUNCTION 
+setwd(USER_WD)
