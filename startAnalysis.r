@@ -81,5 +81,4 @@ pca_plot(batch_corrected, pheno$Platform)
 dev.off()
 
 #Save the batch corrected results for Ordinal regression analysis 
-
-write.csv(batch_corrected, "~/Desktop/AdjustedLupus.csv")
+write.csv(batch_corrected, "RESULT/AdjustedLupus.csv")
