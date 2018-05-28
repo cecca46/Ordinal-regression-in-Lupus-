@@ -17,8 +17,11 @@ source("RMA.r")
 source("Combat.r")
 source("OrdinalRegression.r")
 
+
 #Set up directory to store results
 dir.create("RESULT")
+dir.create("PLOT")
+
 
 #FINISH SETTING UP WORKING ENVIRONMENT -----------------------------
 
@@ -43,13 +46,13 @@ rownames(edata) <- edata[,1]
 edata <- edata[,-1]
 
 #Saving plot in the RESULT folder
-pdf(file="RESULT/VariancePlot.pdf")
+pdf(file="PLOT/VariancePlot.pdf")
 variance_plot(edata)
 dev.off()
-pdf(file="RESULT/PCAbyGroup.pdf")
+pdf(file="PLOT/PCAbyGroup.pdf")
 pca_plot(edata, pheno$Group)
 dev.off()
-pdf(file="RESULT/PCAbyPlatform.pdf")
+pdf(file="PLOT/PCAbyPlatform.pdf")
 pca_plot(edata, pheno$Platform)
 dev.off()
 
@@ -60,11 +63,11 @@ dev.off()
 #PERFORM QUANTILE NORMALIZATION
 #RUN COMBAT TO CORRECT FOR THE PLATFORM TECHNICAL VARIATION CLEAR FROM PREVIOUS PLOTS
 
-pdf(file="RESULT/BOXPLOTBEFOREQuantNorm.pdf")
+pdf(file="PLOT/BOXPLOTBEFOREQuantNorm.pdf")
 boxplot( edata, las = 2 )
 dev.off()
 edata <- t(quantileNormalization(t(edata)))
-pdf(file="RESULT/BOXPLOTAFTERQuantNorm.pdf")
+pdf(file="PLOT/BOXPLOTAFTERQuantNorm.pdf")
 boxplot( edata, las = 2 )
 dev.off()
 #Batch = platform
@@ -72,10 +75,10 @@ dev.off()
 batch_corrected <- batch_mitigation(edata, pheno)
 
 #Inspect PCA plots again
-pdf(file="RESULT/PCAbyGroupCombat.pdf")
+pdf(file="PLOT/PCAbyGroupCombat.pdf")
 pca_plot(batch_corrected, pheno$Group)
 dev.off()
-pdf(file="RESULT/PCAbyPlatformCombat.pdf")
+pdf(file="PLOT/PCAbyPlatformCombat.pdf")
 pca_plot(batch_corrected, pheno$Platform)
 dev.off()
 
@@ -99,7 +102,13 @@ pheno <- read.csv('MergedDatasetsInfo.csv')
 # high positive beta means that the gene progressively upregulates with disease progression 
 # small negative beta means that the gene progressively downregulated with disease progression
 ordinal_result <- ordinal_regression(batch_corrected, pheno) 
+
+#Writing the results of the ordinal analysis: list of significant genes along with pvalue and beta parameter for each gene
 write.csv(ordinal_result, "RESULT/OrdinalRegressionResults.csv")
+
+
+
+
 
 
 

@@ -40,7 +40,7 @@ ordinal_regression <- function(exp, pheno){
     
     #fit a regression model for each gene
     for (i in 1:length(varNames)){
-        #print (i)
+        print (i)
         predictor <- varNames[i]
         form <- as.formula(paste("ordinal_variable~", paste(gsub('\"', "", predictor, fixed = TRUE)),collapse = ""))
         model1 <- clm(form, data = exp, link = 'probit')
@@ -56,10 +56,10 @@ ordinal_regression <- function(exp, pheno){
     while (1){ #repeat this loop until exit (break) condition is met 
         significant <- find_significant(wald, threshold)
         #if there are too few significant genes, increase the threshold by factor of 10
-        if (length(significant) >= 0 & length(significant) <= 400)
+        if (length(significant[[1]]) >= 0 & length(significant[[1]]) <= 400)
             threshold <- threshold * 1e1
         #if there are too many significant results, decrease the threashold by factor of 10
-        else if (length(significant) >= 1000){
+        else if (length(significant[[1]]) >= 1000){
             threshold <- threshold * 1e-1
         } 
         #if number of significant results is between 400 and 1000, exit the loop
@@ -68,7 +68,8 @@ ordinal_regression <- function(exp, pheno){
     }
     #create dataframe for results
     ordinal_result <- data.frame(genes, betas)
-    ordinal_result <- ordinal_result[rownames(ordinal_result) %in% significant, ]
+    ordinal_result <- ordinal_result[rownames(ordinal_result) %in% significant[[1]], ]
+    ordinal_result <- cbind(ordinal_result, significant[[2]])
     df <- ordinal_result[order(-ordinal_result$betas),]
     return (df)
     #upPAG <- ordinal_result[ordinal_result$betas>0,]
@@ -79,6 +80,7 @@ ordinal_regression <- function(exp, pheno){
 find_significant <- function(pval, threshold){
     
     significant <- NULL
+    summarised_pval <- NULL
     for(i in 1:length(pval)){
         keep <- TRUE
         for (j in 1:length(pval[[i]])){
@@ -91,9 +93,12 @@ find_significant <- function(pval, threshold){
         if (keep == TRUE){
             #insert gene name in the list of significant genes 
             significant <- c(significant, names(pval[[i]])[4])
+            raise <- (log(pval[[i]][1]) +  log(pval[[i]][2]) +  log(pval[[i]][3]) +  log(pval[[i]][4]))/4
+            summarised_pval <- c(summarised_pval, 10^raise)
         }
     }
-    #list of significant genes 
-    return (significant)
+    #list of significant genes
+    res <- data.frame(significant, summarised_pval)
+    return (res)
     
 }
