@@ -90,4 +90,27 @@ Using these samples, we sought to identify and rank genes that are linked strong
 |     Ordinal Category 4   |    Stage 4 or 5   |            5           |
 
 
-Using this approach, we identified 506 genes (termed phenotype-associated genes, PAGs) whose transcriptional dysregulation was significantly associated with renal pathological severity (Wald test, p-value of all the fitted parameters <1e-6). We identified 279 consistently upregulated PAGs, and 227 consistently downregulated PAGs due to progressive kidney decline function. GO was perfomed on the two group separately.
+Using this approach, we identified 506 genes (termed phenotype-associated genes, PAGs) whose transcriptional dysregulation was significantly associated with renal pathological severity (Wald test, p-value of all the fitted parameters <1e-6). The magnitude of the β parameter, which is fitted for each gene, correlates to the rate by which the expression of a gene is altered with the increase of severity in disease progression. We identified 279 consistently upregulated PAGs, and 227 consistently downregulated PAGs due to progressive kidney decline function. GO was perfomed on the two group separately.
+
+**ADD GO**
+
+
+As the slope of the fitted lines indicates the rate by which the expression of a gene changes with progressive SLE, we hypothesized that genes with larger slopes would be likely to have important roles in the disease. Thus, we ranked the genes according to the magnitude of the β parameter.
+
+|       Rank             |     Gene name	        |    β parameter    |       pvalue           | 
+| ---------------------  | -------------------------| ----------------- | ---------------------- |
+|       1                |     TCF3                 |    11.15402638    |            3.37E-17    |
+|       2                |     CENPI                |    8.914415045    |            1.73E-16    |
+|       3                |     GUCY2C               |    8.344231823    |            1.11E-15    |
+|       4                |     RPL27                |    7.771460644    |            1.88E-15    |
+|       5                |     MVP                  |    7.453617767    |            2.48E-18    |
+|       6                |     ZDHHC3               |    7.306487705    |            1.87E-17    |
+|       7                |     ZDHHC18              |    6.839532265    |            3.99E-18    |
+|       8                |     TINF2                |    6.760683612    |            8.26E-17    |
+|       9                |     ABHD2                |    6.617354198    |            2.23E-16    |
+|       10               |     RBL1                 |    6.527797283    |            7.63E-16    |
+|       11               |     RNASEH2A             |    6.22245656     |            2.84E-19    |
+|       12               |     TIMELESS             |    6.063382403    |            2.04E-17    |
+
+
+
