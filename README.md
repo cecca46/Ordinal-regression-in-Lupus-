@@ -33,6 +33,6 @@ After RMA normalization, as the number of genes differ due to the two platform u
 After merging, we inspect PCAs looking for possible clusters which denote a batch effect problem.
 
 
-<img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.png" width="400" height="790">
+<img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.png" width="800" height="700">
 
 
