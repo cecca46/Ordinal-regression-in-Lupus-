@@ -33,11 +33,11 @@ The dataset used, GEO accession number **GSE104948**, contains glomerular transc
 
 
 
-|                | Platform HG-U133A |Platform HG-U133_Plus_2 | 
-| -----------    | ----------------- | ---------------------- |
-|  **Condition** |  
-|      LD        |         3         |           18           |
-|      SLE       |         30        |            0           |
+"                         "|                | Platform HG-U133A |Platform HG-U133_Plus_2 | 
+"                         "| -----------    | ----------------- | ---------------------- |
+"                         "|  **Condition** |  
+"                         "|      LD        |         3         |           18           |
+"                         "|      SLE       |         30        |            0           |
 
 
 Clinical metrics corresponding to disease phenotype for these samples are publicly available. Specifically, we categorized the patients based on the reported severity of kidney demage.
