@@ -31,6 +31,8 @@ The dataset used, GEO accession number **GSE104948**, contains glomerular transc
 The gene expression compendium was normalised using Robust Multi Array (RMA) normalisation.
 After RMA normalization, as the number of genes differ due to the two platform used, we merge the genes from HG-U133A (13768) and HG-U133_Plus_2 (22048). The final results yield a gene expressium compendium of 13768 genes and 51 samples.
 After merging, we inspect PCAs looking for possible clusters which denote a batch effect problem.
+
+
 **Samples grouped by condition**
 
 <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.png" width="700" height="700">
@@ -38,4 +40,24 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 **Samples grouped by platform**
 
 <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatform.png" width="700" height="700">
+
+Clearly from the latter plots, there is strong batch effect driving the samples from the two different platforms far apart. The 3 healthy samples shown in the pictures, wrongly cluster with SLE samples as they were analysed using the same chip.
+We then tried to reduce platform specific effect using Combat, after quantile normalization on the expression matrix, while adjusting for the sample condition (SLE-LD).
+
+
+**Samples grouped by condition after Combat**
+
+<img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat.png" width="700" height="700">
+
+**Samples grouped by platform**
+
+<img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatformCombat.png" width="700" height="700">
+
+
+
+In the latter plots, the 3 living donor samples from platform HG-U133A cluster with the living donors from platform HG-U133_Plus_2. From these plots seem that the differences among the samples is now driven by biological differences, namely the SLE vs LD condition, and not by technical variation. 
+We aimed to perform Ordinal regression analysis on these 51 samples.
+
+
+
 
