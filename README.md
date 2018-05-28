@@ -29,11 +29,11 @@ To develop an approach that can take advantage of information on the severity of
 
 
 
-|                |       Platform            |
-| -----------    | -------- | -------------- |
-|  **Condition** | HG-U133A | HG-U133_Plus_2 |
-|      LD        |     3    |       18       |
-|      SLE       |     30   |       0        |
+|                | Platform HG-U133A |Platform HG-U133_Plus_2 | 
+| -----------    | ----------------- | ---------------------- |
+|  **Condition** |  
+|      LD        |         3         |           18           |
+|      SLE       |         30        |            0           |
 
 
 
