@@ -32,4 +32,4 @@ The gene expression compendium was normalised using Robust Multi Array (RMA) nor
 After RMA normalization, as the number of genes differ due to the two platform used, we merge the genes from HG-U133A (13768) and HG-U133_Plus_2 (22048). The final results yield a gene expressium compendium of 13768 genes and 51 samples.
 After merging, we inspect PCAs looking for possible clusters which denote a batch effect problem.
 
-![](Ordinal-regression-in-Lupus-/PLOT/PCAbyGroup.pdf)
+![ScreenShot](PLOT/PCAbyGroup.pdf)
