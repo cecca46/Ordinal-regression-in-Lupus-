@@ -29,6 +29,7 @@ To develop an approach that can take advantage of information on the severity of
 
 The dataset used, GEO accession number **GSE104948**, contains glomerular transcriptome from European Renal cDNA Bank subjects and living donors. It is composed of 196 samples. Out of them all, we collected 30 samples of Systemic Lupus Erythematous (SLE) and 21 Living Donors (LD).  Clinical metrics corresponding to disease phenotype for these samples are publicly available. Specifically, we categorized the patients based on the reported severity of kidney demage.
 The gene expression compendium was normalised using Robust Multi Array (RMA) normalisation.
-After RMA normalization, as the number of genes differ due to the 2 platform used, we merge the genes from HG-U133A (13768) and HG-U133_Plus_2 (22048). The final results yield a gene expressium compendium of 13768 genes and 51 samples.
+After RMA normalization, as the number of genes differ due to the two platform used, we merge the genes from HG-U133A (13768) and HG-U133_Plus_2 (22048). The final results yield a gene expressium compendium of 13768 genes and 51 samples.
 After merging, we inspect PCAs looking for possible clusters which denote a batch effect problem.
 
+![](https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.pdf)
