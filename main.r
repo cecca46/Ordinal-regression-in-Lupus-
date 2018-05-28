@@ -46,13 +46,13 @@ rownames(edata) <- edata[,1]
 edata <- edata[,-1]
 
 #Saving plot in the RESULT folder
-pdf(file="PLOT/VariancePlot.pdf")
+png(filename="PLOT/VariancePlot.png")
 variance_plot(edata)
 dev.off()
-pdf(file="PLOT/PCAbyGroup.pdf")
+png(filename="PLOT/PCAbyGroup.png")
 pca_plot(edata, pheno$Group)
 dev.off()
-pdf(file="PLOT/PCAbyPlatform.pdf")
+png(filename="PLOT/PCAbyPlatform.png")
 pca_plot(edata, pheno$Platform)
 dev.off()
 
@@ -63,11 +63,11 @@ dev.off()
 #PERFORM QUANTILE NORMALIZATION
 #RUN COMBAT TO CORRECT FOR THE PLATFORM TECHNICAL VARIATION CLEAR FROM PREVIOUS PLOTS
 
-pdf(file="PLOT/BOXPLOTBEFOREQuantNorm.pdf")
+png(filename="PLOT/BOXPLOTBEFOREQuantNorm.png")
 boxplot( edata, las = 2 )
 dev.off()
 edata <- t(quantileNormalization(t(edata)))
-pdf(file="PLOT/BOXPLOTAFTERQuantNorm.pdf")
+png(filename="PLOT/BOXPLOTAFTERQuantNorm.png")
 boxplot( edata, las = 2 )
 dev.off()
 #Batch = platform
@@ -75,10 +75,10 @@ dev.off()
 batch_corrected <- batch_mitigation(edata, pheno)
 
 #Inspect PCA plots again
-pdf(file="PLOT/PCAbyGroupCombat.pdf")
+png(filename="PLOT/PCAbyGroupCombat.png")
 pca_plot(batch_corrected, pheno$Group)
 dev.off()
-pdf(file="PLOT/PCAbyPlatformCombat.pdf")
+png(filename="PLOT/PCAbyPlatformCombat.png")
 pca_plot(batch_corrected, pheno$Platform)
 dev.off()
 
@@ -105,12 +105,6 @@ ordinal_result <- ordinal_regression(batch_corrected, pheno)
 
 #Writing the results of the ordinal analysis: list of significant genes along with pvalue and beta parameter for each gene
 write.csv(ordinal_result, "RESULT/OrdinalRegressionResults.csv")
-
-
-
-
-
-
 
 
 
