@@ -29,11 +29,7 @@ To develop an approach that can take advantage of information on the severity of
 
 
 
-The dataset used, GEO accession number **GSE104948**, contains glomerular transcriptome from European Renal cDNA Bank subjects and living donors. It is composed of 196 samples. Out of them all, we collected 30 samples of Systemic Lupus Erythematous (SLE) and 21 Living Donors (LD).  Clinical metrics corresponding to disease phenotype for these samples are publicly available. Specifically, we categorized the patients based on the reported severity of kidney demage.
-The gene expression compendium was normalised using Robust Multi Array (RMA) normalisation.
-After RMA normalization, as the number of genes differ due to the two platform used, we merge the genes from HG-U133A (13768) and HG-U133_Plus_2 (22048). The final results yield a gene expressium compendium of 13768 genes and 51 samples.
-After merging, we inspect PCAs looking for possible clusters which denote a batch effect problem.
-
+The dataset used, GEO accession number **GSE104948**, contains glomerular transcriptome from European Renal cDNA Bank subjects and living donors. It is composed of 196 samples. Out of them all, we collected 30 samples of Systemic Lupus Erythematous (SLE) and 21 Living Donors (LD). 
 
 
 
@@ -44,8 +40,10 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 |      SLE       |         30        |            0           |
 
 
-
-
+Clinical metrics corresponding to disease phenotype for these samples are publicly available. Specifically, we categorized the patients based on the reported severity of kidney demage.
+The gene expression compendium was normalised using Robust Multi Array (RMA) normalisation.
+After RMA normalization, as the number of genes differ due to the two platform used, we merge the genes from HG-U133A (13768) and HG-U133_Plus_2 (22048). The final results yield a gene expressium compendium of 13768 genes and 51 samples.
+After merging, we inspect PCAs looking for possible clusters which denote a batch effect problem.
 
 
 <p align="center">
@@ -77,11 +75,16 @@ We then tried to reduce platform specific effect using Combat, after quantile no
 
 
 
-
-
 In the latter plots, the 3 living donor samples from platform HG-U133A cluster with the living donors from platform HG-U133_Plus_2. From these plots seem that the differences among the samples is now driven by biological differences, namely the SLE vs LD condition, and not by technical variation. 
-We aimed to perform Ordinal regression analysis on these 51 samples.
+
+### Ordinal analysis
+
+Using these samples, we sought to identify and rank genes that are linked strongly to the severity of SLE progression. For this purpose, we adapted a statistical model known as ordinal regression to integrate real-valued expression data with the stage of disease. In this regression model, the values of the response variable have an ordinal relationship (stage 1 < stage 2 < stage 3 < stage 4 < stage 5). The ordinal regression model makes no assumptions about the relative quantitative value of the scale; this is essential as clinical phenotypes have a qualitative and not quantitative nature (the distance between one class and another can be unknown) and a severity score of four does not represent twice the severity of a score of two. To increase the statistical power of the analysis, we grouped the samples according to their proximity of SLE progression in the way shown in the table:
 
 
-
-
+|     Ordinal Category	   |      Conditions   |       Sample size      | 
+| -------------------------| ----------------- | ---------------------- |
+|     Ordinal Category 1   |        Control    |            21          |
+|     Ordinal Category 2   |    Stage 1 or 2   |            18          |
+|     Ordinal Category 3   |    Stage 3A or 3B |            7           |
+|     Ordinal Category 4   |    Stage 4 or 5   |            5           |
