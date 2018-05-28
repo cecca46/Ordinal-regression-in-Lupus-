@@ -15,6 +15,7 @@ source("QuantileNorm.r")
 source("PCAplots.r")
 source("RMA.r")
 source("Combat.r")
+source("OrdinalRegression.r")
 
 #Set up directory to store results
 dir.create("RESULT")
@@ -33,8 +34,6 @@ get_GEO(dataset)
 aggregate_dataset("RESULT/PlatformU133.csv", "RESULT/Platform2Plus.csv", "RESULT/MergedDatasets.csv")
 
 #FINISH DOWNLOADING AND MERGING DATA -------------------------------
-
-
 
 
 #PLOT PCA OF THE MERGED AND NORMALIZED DATASET
@@ -88,8 +87,23 @@ write.csv(batch_corrected, "RESULT/AdjustedLupus.csv")
 
 
 #START ORDINAL REGRESSION ANALYSIS --------------------------------------
+#Read gene expression matrix and clinical information about patients 
 
+batch_corrected <- read.csv('RESULT/AdjustedLupus.csv')
+rownames(batch_corrected) <- batch_corrected[,1]
+batch_corrected <- batch_corrected[,-1]
 batch_corrected <- t(batch_corrected)
+pheno <- read.csv('MergedDatasetsInfo.csv')
+# ordinal_result is a dataframe that contains a number of significant genes along with their beta coefficient 
+# the genes are ordered according to the value of the beta coefficient
+# high positive beta means that the gene progressively upregulates with disease progression 
+# small negative beta means that the gene progressively downregulated with disease progression
+ordinal_result <- ordinal_regression(batch_corrected, pheno) 
+write.csv(ordinal_result, "RESULT/OrdinalRegressionResults.csv")
+
+
+
+
 
 
 

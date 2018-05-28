@@ -3,14 +3,6 @@
 #input: gene expression matrix in the form of dataframe with samples in rows and genes in columns, dataframe or vector containing the ordinal variable of interest 
 #output: list of upregulated and downregulated PAGs (phenotype associated genes)
 
-
-exp <- read.csv('RESULT/MergedDatasets.csv')
-rownames(exp) <- exp[,1]
-exp <- exp[,-1]
-exp <- t(exp)
-pheno <- read.csv('MergedDatasetsInfo.csv')
-
-
 ordinal_regression <- function(exp, pheno){
     #read from the clinical information the ordinal categories (stages)
     #make the ordinal category a column of the gene matrix
@@ -19,11 +11,14 @@ ordinal_regression <- function(exp, pheno){
     #adjust the columns name 
     colnames(exp) <- gsub(pattern = "-",replacement = ".",x = colnames(exp))
     colnames(exp) <- gsub('\"', "", colnames(exp), fixed = TRUE)
+    colnames(exp) <- gsub(pattern = "@", replacement = "",x = colnames(exp))
+    
     exp <- as.data.frame(exp)
     #all columns (features) of exp excluding the response variable
     varNames <- colnames(exp)
     varNames <- varNames[!varNames %in% c("ordinal_variable")]
     varNames <- gsub(pattern = "-",replacement = ".",x = varNames)
+    
     #make the output variable as numeric
     #group the conditions of the samples to increase their number per individual ordinal category
     #Ordinal category 1: Controls
@@ -45,7 +40,7 @@ ordinal_regression <- function(exp, pheno){
     
     #fit a regression model for each gene
     for (i in 1:length(varNames)){
-        print (i)
+        #print (i)
         predictor <- varNames[i]
         form <- as.formula(paste("ordinal_variable~", paste(gsub('\"', "", predictor, fixed = TRUE)),collapse = ""))
         model1 <- clm(form, data = exp, link = 'probit')
@@ -60,7 +55,6 @@ ordinal_regression <- function(exp, pheno){
     threshold <- 1e-06 #starting threshold value
     while (1){ #repeat this loop until exit (break) condition is met 
         significant <- find_significant(wald, threshold)
-        print (length(significant))
         #if there are too few significant genes, increase the threshold by factor of 10
         if (length(significant) >= 0 & length(significant) <= 400)
             threshold <- threshold * 1e1
@@ -75,7 +69,8 @@ ordinal_regression <- function(exp, pheno){
     #create dataframe for results
     ordinal_result <- data.frame(genes, betas)
     ordinal_result <- ordinal_result[rownames(ordinal_result) %in% significant, ]
-    return (ordinal_result)
+    df <- ordinal_result[order(-ordinal_result$betas),]
+    return (df)
     #upPAG <- ordinal_result[ordinal_result$betas>0,]
     #downPAG <- ordinal_result[ordinal_result$betas<0,]
     
