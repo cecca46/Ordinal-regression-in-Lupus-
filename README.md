@@ -88,3 +88,6 @@ Using these samples, we sought to identify and rank genes that are linked strong
 |     Ordinal Category 2   |    Stage 1 or 2   |            18          |
 |     Ordinal Category 3   |    Stage 3A or 3B |            7           |
 |     Ordinal Category 4   |    Stage 4 or 5   |            5           |
+
+
+Using this approach, we identified 506 genes (termed phenotype-associated genes, PAGs) whose transcriptional dysregulation was significantly associated with renal pathological severity (Wald test, p-value of all the fitted parameters <1e-6). We identified 279 consistently upregulated PAGs, and 227 consistently downregulated PAGs due to progressive kidney decline function. GO was perfomed on the two group separately.
