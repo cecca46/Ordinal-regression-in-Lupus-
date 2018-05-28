@@ -27,11 +27,15 @@ To develop an approach that can take advantage of information on the severity of
 
 ### Data 
 
+
+
 |                |       Platform            |
 | -----------    | -------- | -------------- |
 |  **Condition** | HG-U133A | HG-U133_Plus_2 |
 |      LD        |     3    |       18       |
 |      SLE       |     30   |       0        |
+
+
 
 The dataset used, GEO accession number **GSE104948**, contains glomerular transcriptome from European Renal cDNA Bank subjects and living donors. It is composed of 196 samples. Out of them all, we collected 30 samples of Systemic Lupus Erythematous (SLE) and 21 Living Donors (LD).  Clinical metrics corresponding to disease phenotype for these samples are publicly available. Specifically, we categorized the patients based on the reported severity of kidney demage.
 The gene expression compendium was normalised using Robust Multi Array (RMA) normalisation.
