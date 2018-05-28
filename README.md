@@ -49,40 +49,41 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 
 
 <p align="center">
+
     Samples grouped by condition
-</p>
-
-<p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.png" width="700" height="700">
+
 </p>
 
 
+
+
 <p align="center">
+
     Samples grouped by platform
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatform.png" width="700" height="700">
-</p>
-
-<p align="center">
     
 </p>
+
 
 Clearly from the latter plots, there is strong batch effect driving the samples from the two different platforms far apart. The 3 healthy samples shown in the pictures, wrongly cluster with SLE samples as they were analysed using the same chip.
 We then tried to reduce platform specific effect using Combat, after quantile normalization on the expression matrix, while adjusting for the sample condition (SLE-LD).
 
-
-
-<center> **Samples grouped by condition after Combat**</center>
-
 <p align="center">
-    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat.png" width="700" height="700">
+
+    Samples grouped by condition after Combat
+     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat.png" width="700" height="700">
+    
 </p>
 
-
-<center> <h4>**Samples grouped by platform after Combat**</center>
-
 <p align="center">
+
+    Samples grouped by platform after Combat
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatformCombat.png" width="700" height="700">
+    
 </p>
+
+
 
 
 
