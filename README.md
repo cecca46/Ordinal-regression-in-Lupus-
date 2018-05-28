@@ -46,14 +46,15 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 
 
 
-**Samples grouped by condition**
+
+<center> <h4>**Samples grouped by condition**</center>
 
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.png" width="700" height="700">
 </p>
 
 
-**Samples grouped by platform**
+<center> <h4>**Samples grouped by platform**</center>
 
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatform.png" width="700" height="700">
@@ -63,14 +64,15 @@ Clearly from the latter plots, there is strong batch effect driving the samples 
 We then tried to reduce platform specific effect using Combat, after quantile normalization on the expression matrix, while adjusting for the sample condition (SLE-LD).
 
 
-**Samples grouped by condition after Combat**
+
+<center> <h4>**Samples grouped by condition after Combat**</center>
 
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat.png" width="700" height="700">
 </p>
 
 
-**Samples grouped by platform**
+<center> <h4>**Samples grouped by platform after Combat**</center>
 
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatformCombat.png" width="700" height="700">
