@@ -54,7 +54,9 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 </p>
 
 
-<center> <h4>**Samples grouped by platform**</center>
+<p align="center">
+    **Samples grouped by platform**
+</p>
 
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatform.png" width="700" height="700">
@@ -65,7 +67,7 @@ We then tried to reduce platform specific effect using Combat, after quantile no
 
 
 
-<center> <h4>**Samples grouped by condition after Combat**</center>
+<center> **Samples grouped by condition after Combat**</center>
 
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat.png" width="700" height="700">
