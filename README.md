@@ -117,5 +117,5 @@ As the slope of the fitted lines indicates the rate by which the expression of a
 
 ### Reference
 
-[Pirhaji et al. 2017, Identifying therapeutic targets by combining transcriptional data with ordinal clinical measurements](https://www.nature.com/articles/s41467-017-00353-6#Sec10)
+[Identifying therapeutic targets by combining transcriptional data with ordinal clinical measurements, Pirhaji et al. 2017](https://www.nature.com/articles/s41467-017-00353-6#Sec10)
 
