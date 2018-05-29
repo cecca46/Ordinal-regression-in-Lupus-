@@ -117,7 +117,92 @@ aggregate_dataset <- function(pathToData1, pathToData2, pathToResult){
     write.csv(edata, pathToResult)
     
 }
+
+
+# Function that corrects the gene names wrongly changed to DATE by the .csv formatter
+fix_CSVformat <- function(pathToData){
     
+    gene_matrix <- read.csv(pathToData)
+    gene_names <- as.vector(gene_matrix[,1])
+    gene_matrix <- gene_matrix[,-1]
+    second_marc1 <- FALSE
+    second_marc2 <- FALSE
+    for (k in 1:length(gene_names)){
+        
+        if (gene_names[k] == "DEC1")
+            gene_names[k] <- "\"DEC1\""
+        
+        else if (gene_names[k] == "MARC1")
+            gene_names[k] <-  "\"MARC1\""
+           
+        else if (gene_names[k] == "MARCH1")
+            gene_names[k] <- "\"MARCH1\""
+            
+        else if (gene_names[k] == "MARC2")
+            gene_names[k] <-  "\"MARC2\""
+        
+        else if (gene_names[k] == "MARCH2")
+            gene_names[k] <-  "\"MARCH2\""
+            
+        else if (gene_names[k] == "MARCH3")
+            gene_names[k] <- "\"MARCH3\""
+
+        else if (gene_names[k] == "MARCH5")
+            gene_names[k] <- "\"MARCH5\""
+        
+        else if (gene_names[k] == "MARCH6")
+            gene_names[k] <- "\"MARCH6\""
+        
+        else if (gene_names[k] == "MARCH7")
+            gene_names[k] <- "\"MARCH7\""
+        
+        else if (gene_names[k] == "MARCH8")
+            gene_names[k] <- "\"MARCH8\""
+        
+        else if (gene_names[k] == "SEPT2")
+            gene_names[k] <- "\"SEPT2\""
+        
+        else if (gene_names[k] == "SEPT4")
+            gene_names[k] <- "\"SEPT4\""
+        
+        else if (gene_names[k] == "SEPT5")
+            gene_names[k] <- "\"SEPT5\""
+        
+        else if (gene_names[k] == "SEPT6")
+            gene_names[k] <- "\"SEPT6\""
+        
+        else if (gene_names[k] == "SEPT7")
+            gene_names[k] <- "\"SEPT7\""
+        
+        else if (gene_names[k] == "SEPT8")
+            gene_names[k] <- "\"SEPT8\""
+        
+        else if (gene_names[k] == "SEPT9")
+            gene_names[k] <- "\"SEPT9\""
+        
+        else if (gene_names[k] == "SEPT10")
+            gene_names[k] <- "\"SEPT10\""
+        
+        else if (gene_names[k] == "SEPT11")
+            gene_names[k] <- "\"SEPT11\""
+        
+        else next
+    }
+    rownames(gene_matrix) <- gene_names
+    write.csv(gene_matrix, pathToData)
+    
+    
+}
+    
+
+
+
+
+
+
+
+
+
 
 
 

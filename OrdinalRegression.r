@@ -39,6 +39,7 @@ ordinal_regression <- function(exp, pheno){
     betas <- NULL
     
     #fit a regression model for each gene
+    
     for (i in 1:length(varNames)){
         print (i)
         predictor <- varNames[i]
@@ -85,13 +86,14 @@ find_significant <- function(pval, threshold){
         keep <- TRUE
         for (j in 1:length(pval[[i]])){
             if (pval[[i]][j] >= threshold){
-                #if any of the fitted parameters is greated or equal than the threshold than the gene is not considered significant
-                #hence not to keep
+                # if any of the fitted parameters is greated or equal than the threshold than the gene is not considered significant
+                # hence not to keep
                 keep <- FALSE
             }
         }
         if (keep == TRUE){
-            #insert gene name in the list of significant genes 
+            # insert gene name in the list of significant genes
+            # compute a summarised pvalue from the model for each one of the gene
             significant <- c(significant, names(pval[[i]])[4])
             raise <- (log(pval[[i]][1]) +  log(pval[[i]][2]) +  log(pval[[i]][3]) +  log(pval[[i]][4]))/4
             summarised_pval <- c(summarised_pval, 10^raise)
