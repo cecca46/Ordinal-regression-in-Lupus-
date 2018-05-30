@@ -103,7 +103,7 @@ pheno <- read.csv('MergedDatasetsInfo.csv')
 # high positive beta means that the gene progressively upregulates with disease progression 
 # small negative beta means that the gene progressively downregulated with disease progression
 ordinal_result <- ordinal_regression(batch_corrected, pheno) 
-
+names(ordinal_result) <- c("gene_name", "beta coeff", "pvalue")
 #Writing the results of the ordinal analysis: list of significant genes along with pvalue and beta parameter for each gene
 write.csv(ordinal_result, "RESULT/OrdinalRegressionResults.csv")
 
