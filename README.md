@@ -114,6 +114,8 @@ Using this approach, we identified 506 genes (termed phenotype-associated genes,
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/MixedUP.png" width="700" height="700">
 </p>
 
+
+
 <p align="center">
     Piano NonDirectional
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/NonDirectional.png" width="700" height="700">
