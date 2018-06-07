@@ -116,7 +116,7 @@ Using this approach, we identified 506 genes (termed phenotype-associated genes,
 
 
 <p align="center">
-    Piano non directional enrich     
+    Piano excluded directionality (non directional)
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/NonDirectional.png" width="700" height="700">
 </p>
 
