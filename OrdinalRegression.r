@@ -2,7 +2,7 @@
 # Function to perform ordinal regression.
 # input: gene expression matrix in the form of dataframe with samples in rows and genes in columns, dataframe or vector containing the ordinal variable of interest 
 # output: list of upregulated and downregulated PAGs (phenotype associated genes)
-
+require(ordinal)
 ordinal_regression <- function(exp, pheno){
     # read from the clinical information the ordinal categories (stages)
     # make the ordinal category a column of the gene matrix
@@ -69,10 +69,14 @@ ordinal_regression <- function(exp, pheno){
     }
     # create dataframe for results
     ordinal_result <- data.frame(genes, betas)
-    ordinal_result <- ordinal_result[rownames(ordinal_result) %in% significant[[1]], ]
-    ordinal_result <- cbind(ordinal_result, significant[[2]])
-    df <- ordinal_result[order(-ordinal_result$betas),]
-    return (df)
+    all_genes_pstat <- all_genes_statistics(wald)
+    all_ordinal_result <- cbind(ordinal_result, all_genes_pstat)
+    significant_ordinal_result <- ordinal_result[rownames(ordinal_result) %in% significant[[1]], ]
+    significant_ordinal_result <- cbind(significant_ordinal_result, significant[[2]])
+    df <- significant_ordinal_result[order(-significant_ordinal_result$betas),]
+    names(df) <- c("gene_name","beta_coeff","Pvalue")
+    newList <- list("all_ordinal_result" = all_ordinal_result, "significant_ordinal_result" = significant_ordinal_result)
+    return (newList)
     # upPAG <- ordinal_result[ordinal_result$betas>0,]
     # downPAG <- ordinal_result[ordinal_result$betas<0,]
     
@@ -107,4 +111,18 @@ find_significant <- function(pval, threshold){
     res <- data.frame(significant, summarised_pval)
     return (res)
     
+}
+
+all_genes_statistics <- function(pval){
+    
+    summarised_pval <- NULL
+    for(i in 1:length(pval)){
+
+        raise <- (log(pval[[i]][1]) +  log(pval[[i]][2]) +  log(pval[[i]][3]) +  log(pval[[i]][4]))/4
+        summarised_pval <- c(summarised_pval, 10^raise)
+            
+    
+    }
+    
+    return (as.vector(summarised_pval))
 }

@@ -125,10 +125,10 @@ fix_CSVformat <- function(pathToData){
     gene_matrix <- read.csv(pathToData)
     gene_names <- as.vector(gene_matrix[,1])
     gene_matrix <- gene_matrix[,-1]
-    second_marc1 <- FALSE
-    second_marc2 <- FALSE
+    
     for (k in 1:length(gene_names)){
         
+      
         if (gene_names[k] == "DEC1")
             gene_names[k] <- "\"DEC1\""
         

@@ -34,7 +34,7 @@ dir.create("PLOT")
 dataset <- "GSE104948"
 get_GEO(dataset)
 aggregate_dataset("RESULT/PlatformU133.csv", "RESULT/Platform2Plus.csv", "RESULT/MergedDatasets.csv")
-# Function that corrects the gene names wrongly changed to DATE by the .csv formatter
+# Function that corrects the gene names wrongly changed to DATE by the csv formatter
 fix_CSVformat("RESULT/MergedDatasets.csv")
 
 #FINISH DOWNLOADING AND MERGING DATA -------------------------------
@@ -98,17 +98,38 @@ rownames(batch_corrected) <- batch_corrected[,1]
 batch_corrected <- batch_corrected[,-1]
 batch_corrected <- t(batch_corrected)
 pheno <- read.csv('MergedDatasetsInfo.csv')
-# ordinal_result is a dataframe that contains a number of significant genes (default with a pval threshold 1e-06) along with their beta coefficient 
-# the genes are ordered according to the value of the beta coefficient
-# high positive beta means that the gene progressively upregulates with disease progression 
-# small negative beta means that the gene progressively downregulated with disease progression
-ordinal_result <- ordinal_regression(batch_corrected, pheno) 
-names(ordinal_result) <- c("gene_name", "beta coeff", "pvalue")
-#Writing the results of the ordinal analysis: list of significant genes along with pvalue and beta parameter for each gene
-write.csv(ordinal_result, "RESULT/OrdinalRegressionResults.csv")
+# ordinal_result is a list that contains:
+# 1 dataframe with the statistics (beta coefficient and pvalues) for all the genes (for GO analysis) and
+# 1 dataframe with the statistics (beta coefficient and pvalues) for the significant genes 
+# Gene significant is assessed using a default threshold pvalue of 1e-06
+# High positive beta means that the gene progressively upregulates with disease progression 
+# Small negative beta means that the gene progressively downregulated with disease progression
+ordinal_result_list <- ordinal_regression(batch_corrected, pheno) 
+
+
+all_ordinal_result <- ordinal_result_list$all_ordinal_result
+significant_ordinal_result <- ordinal_result_list$significant_ordinal_result
+# Writing the results of the ordinal analysis: 
+# List of significant genes along with pvalue and beta parameter for each gene
+write.csv(significant_ordinal_result, "RESULT/SignificantOrdinalRegressionResults.csv")
+write.csv(all_ordinal_result, "RESULT/AllOrdinalRegressionResults.csv")
+# Fix names problem caused by csv formatter
+fix_CSVformat("RESULT/SignificantOrdinalRegressionResults.csv")
+fix_CSVformat("RESULT/AllOrdinalRegressionResults.csv")
 
 
 
+# Perform Piano analysis with GO terms on the complete list of results from Ordinal regression
+# Piano uses 5 methods and pvalues to calculate significance
+# A consensus score obteined from all the methods is then computed
+# The plots arguments (TRUE by default) saves to the PLOT folder two Venn Diagrams showing the intercepts between the 
+# the non directional, directional up, mixed up and non directional, directional down, mixed down respectively
+# The method returns a list containing 2 vectors:
+# a vector with the significant upregulated bp and 
+# a vector with the significant downregulated bp
+newList <- run_piano("RESULT/AllOrdinalRegressionResults.csv", plots = TRUE)
+write.csv(newList$up,"RESULT/UpRegulatedBP.csv")
+write.csv(newList$down,"RESULT/DOWNRegulatedBP.csv")
 
 
 

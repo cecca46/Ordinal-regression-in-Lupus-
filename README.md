@@ -1,5 +1,6 @@
 ## Repository structure
 
+
 This repository contains the following files: 
 
 `main.r`: Main function (in-line code) that follows the analysis pipenile developed to download, normalize, merge and run ordinal regression on the gene expression data for 21 healthy samples and 30 Systemic Lupus Erythematous samples. This function will create a `RESULT` folder to store all the results from running the analysis. It also writes any generated plot to a `PLOT` folder if exists (it will create one otherwise).
