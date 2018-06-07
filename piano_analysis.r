@@ -49,19 +49,19 @@ run_piano <- function(path, plots = TRUE){
     
     
     #INTERSECTING TERMS 
-    pdf(file ="PLOT/NonDirectional.pdf",width = 9, height = 8)
+    png(filename = "PLOT/NonDirectional.png",width = 9, height = 8)
     cs_nonDirection <- consensusScores(resList, class="non",plot = T)
     dev.off()
-    pdf(file ="PLOT/DistinctUP.pdf",width = 9, height = 8)
+    png(filename ="PLOT/DistinctUP.png",width = 9, height = 8)
     cs_Distinct_up <- consensusScores(resList, class="distinct", direction = "up")
     dev.off()
-    pdf(file ="PLOT/MixedUP.pdf",width = 9, height = 8)
+    png(filename ="PLOT/MixedUP.png",width = 9, height = 8)
     cs_Mixed_up <- consensusScores(resList, class="mixed", direction = "up")
     dev.off()
-    pdf(file ="PLOT/DistinctDOWN.pdf",width = 9, height = 8)
+    png(filename ="PLOT/DistinctDOWN.png",width = 9, height = 8)
     cs_Distinct_down <- consensusScores(resList, class="distinct", direction = "down")
     dev.off()
-    pdf(file ="PLOT/MixedDOWN.pdf",width = 9, height = 8)
+    png(filename ="PLOT/MixedDOWN.png",width = 9, height = 8)
     cs_Mixed_down <- consensusScores(resList, class="mixed", direction = "down")
     dev.off()
     
