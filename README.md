@@ -115,11 +115,11 @@ Using this approach, we identified 506 genes (termed phenotype-associated genes,
 </p>
 
 
-
 <p align="center">
-    Piano NonDirectional
+    Piano Mixed Directional Up
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/NonDirectional.png" width="700" height="700">
 </p>
+
 
 As the slope of the fitted lines indicates the rate by which the expression of a gene changes with progressive SLE, we hypothesized that genes with larger slopes would be likely to have important roles in the disease. Thus, we ranked the genes according to the magnitude of the β parameter.
 
