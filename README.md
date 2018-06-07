@@ -94,6 +94,9 @@ Using these samples, we sought to identify and rank genes that are linked strong
 Using this approach, we identified 506 genes (termed phenotype-associated genes, PAGs) whose transcriptional dysregulation was significantly associated with renal pathological severity (Wald test, p-value of all the fitted parameters <1e-6). The magnitude of the β parameter, which is fitted for each gene, correlates to the rate by which the expression of a gene is altered with the increase of severity in disease progression. We identified 279 consistently upregulated PAGs, and 227 consistently downregulated PAGs due to progressive kidney decline function. GO was perfomed on the two group separately.
 
 **ADD GO**
+<p align="center">
+    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctUP.pdf" width="700" height="700">
+</p>
 
 
 As the slope of the fitted lines indicates the rate by which the expression of a gene changes with progressive SLE, we hypothesized that genes with larger slopes would be likely to have important roles in the disease. Thus, we ranked the genes according to the magnitude of the β parameter.
