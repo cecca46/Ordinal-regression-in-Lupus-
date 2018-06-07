@@ -96,6 +96,11 @@ Using this approach, we identified 506 genes (termed phenotype-associated genes,
 **ADD GO**
 
 [Intro.pdf](https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctUP.pdf)
+<object data="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctUP.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctUP.pdf">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctUP.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
 
 As the slope of the fitted lines indicates the rate by which the expression of a gene changes with progressive SLE, we hypothesized that genes with larger slopes would be likely to have important roles in the disease. Thus, we ranked the genes according to the magnitude of the β parameter.
 
