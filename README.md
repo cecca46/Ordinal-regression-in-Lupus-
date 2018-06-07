@@ -91,7 +91,8 @@ Using these samples, we sought to identify and rank genes that are linked strong
 |     Ordinal Category 4   |    Stage 4 or 5   |            5           |
 
 
-Using this approach, we identified 506 genes (termed phenotype-associated genes, PAGs) whose transcriptional dysregulation was significantly associated with renal pathological severity (Wald test, p-value of all the fitted parameters <1e-6). The magnitude of the β parameter, which is fitted for each gene, correlates to the rate by which the expression of a gene is altered with the increase of severity in disease progression. We identified 279 consistently upregulated PAGs, and 227 consistently downregulated PAGs due to progressive kidney decline function. GO was perfomed using Piano.
+Using this approach, we identified 506 genes (termed phenotype-associated genes, PAGs) whose transcriptional dysregulation was significantly associated with renal pathological severity (Wald test, p-value of all the fitted parameters <1e-6). The magnitude of the β parameter, which is fitted for each gene, correlates to the rate by which the expression of a gene is altered with the increase of severity in disease progression. We identified 279 consistently upregulated PAGs, and 227 consistently downregulated PAGs due to progressive kidney decline function.
+Using the significance scores calculated using Ordinal regression, we performed gene set enrichment using the tool Piano on the whole gene list. 
 
 
 <p align="center">
@@ -119,6 +120,20 @@ Using this approach, we identified 506 genes (termed phenotype-associated genes,
     Piano excluded directionality (non directional)
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/NonDirectional.png" width="700" height="700">
 </p>
+
+
+The following Venn Diagrams show the number of common emnriched processes among the the non directional, directional up, mixed up and non directional, directional down, mixed down respectively:
+
+<p align="center">
+     Non directional, directional up, mixed up intersection
+    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/UPIntersection.png" width="700" height="700">
+</p>
+
+<p align="center">
+    Non directional, directional down, mixed down intersection
+    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DOWNIntersection.png" width="700" height="700">
+</p>
+
 
 
 As the slope of the fitted lines indicates the rate by which the expression of a gene changes with progressive SLE, we hypothesized that genes with larger slopes would be likely to have important roles in the disease. Thus, we ranked the genes according to the magnitude of the β parameter.
