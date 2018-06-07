@@ -66,7 +66,7 @@ We then tried to reduce platform specific effect using Combat, after quantile no
 
 <p align="center">
     Samples grouped by condition after Combat
-     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat.png" width="700" height="700">
+     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat%20.png" width="700" height="700">
 </p>
 
 <p align="center">
