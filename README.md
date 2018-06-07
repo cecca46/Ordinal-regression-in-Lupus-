@@ -126,8 +126,9 @@ The following Venn Diagrams show the number of common enriched processes among t
 
 <p align="center">
      Non directional, directional up, mixed up intersection
-    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/UPIntersection.png" width="700" height="500">
+    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/UPIntersection.png" width="500" height="500">
 </p>
+Downregulated common biological processes: homophilic cell adhesion via plasma membrane adhesion molecules, regulation of cellular ketone metabolic process
 
 <p align="center">
     Non directional, directional down, mixed down intersection
