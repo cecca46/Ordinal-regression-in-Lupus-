@@ -122,7 +122,7 @@ Using the significance scores calculated using Ordinal regression, we performed 
 </p>
 
 
-The following Venn Diagrams show the number of common emnriched processes among the the non directional, directional up, mixed up and non directional, directional down, mixed down respectively:
+The following Venn Diagrams show the number of common enriched processes among the the non directional, directional up, mixed up and non directional, directional down, mixed down respectively:
 
 <p align="center">
      Non directional, directional up, mixed up intersection
