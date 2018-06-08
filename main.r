@@ -3,18 +3,29 @@
 #MAIN SCRIPT TO GET DATA, RMA NORMALIZE THE DATA, PERFORM ORDINAL REGRESSION ANALYSIS
 #SET UP WORKING ENVIRONMENT 
 
-#Save current user directory
-USER_WD <- getwd()
-
 # Install necessary packages if not present yet 
 list.of.packages <- c("GEOquery", "affyio","affy", "hgu133a.db","hgu133acdf", "hgu133plus2.db","hgu133plus2cdf","sva","factoextra",
                       "ggplot2","ordinal","cluster","ggfortify","biomaRt","piano", "snowfall", "snow","VennDiagram")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
+# if user is running the script in Rstudio:
+# change working directory to the one containing scripts necessary to perform the analysis using Rstudio API
+# otherwise check if the current working directory is this script directory and stop the program otherwise
+isRStudio <- Sys.getenv("RSTUDIO") == "1"
+if (isRStudio == 1){
+    
+    #Save current user directory
+    USER_WD <- getwd()
+    setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+    
+}else {
+    
+    if (!'main.r' %in% list.files(getwd()))
+        
+        stop("Please set the working directory to be the one containing this function")
+}
 
-#Change Working directory to the one containing scripts necessary to perform the analysis
-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 #Source required functions
 source("QuantileNorm.r")
 source("PCAplots.r")
@@ -139,4 +150,9 @@ write.csv(newList$down,"RESULT/DOWNRegulatedBP.csv")
 
 
 #AT THE END! RESET USER WORKING ENVIRONMENT AS BEFORE RUNNING THIS FUNCTION 
-setwd(USER_WD)
+isRStudio <- Sys.getenv("RSTUDIO") == "1"
+if (isRStudio == 1){
+    
+    setwd(USER_WD)
+
+}
