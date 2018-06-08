@@ -12,7 +12,7 @@ if(length(new.packages)) install.packages(new.packages)
 
 
  
-# Make sure to set the working directory to the location this function is store
+# Make sure to set the working directory to the location this function is stored
 
 # setwd("current location")
 if (!'main.r' %in% list.files(getwd())){
