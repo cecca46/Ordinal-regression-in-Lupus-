@@ -158,6 +158,9 @@ As the slope of the fitted lines indicates the rate by which the expression of a
 |       12               |     TIMELESS             |    6.063382403    |            2.04E-17    |
 
 
+### License
+
+Distributed under the GNU GPLv3 License. See accompanying file LICENSE.txt or copy at http://www.gnu.org/licenses/gpl-3.0.html.
 
 
 ### Reference
