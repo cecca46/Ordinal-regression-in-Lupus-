@@ -3,19 +3,6 @@
 #Perfom RMA normalization separately on the 2 different platforms 
 #Merge the normalized result into a single expression matrix
 
-library(GEOquery)
-library(affyio)
-library(affy)
-library(hgu133a.db)
-library(hgu133acdf)
-library(hgu133plus2.db)
-library(hgu133plus2cdf)
-library(sva)
-require(factoextra)
-require(ggplot2)
-
-
-
 #Getting the GEO dataset and extracting sample expression
 get_GEO <- function(geoFile){
     

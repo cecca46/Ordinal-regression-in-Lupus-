@@ -2,7 +2,7 @@
 # Function to perform ordinal regression.
 # input: gene expression matrix in the form of dataframe with samples in rows and genes in columns, dataframe or vector containing the ordinal variable of interest 
 # output: list of upregulated and downregulated PAGs (phenotype associated genes)
-require(ordinal)
+
 ordinal_regression <- function(exp, pheno){
     # read from the clinical information the ordinal categories (stages)
     # make the ordinal category a column of the gene matrix

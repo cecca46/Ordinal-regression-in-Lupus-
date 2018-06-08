@@ -8,6 +8,13 @@
 #Save current user directory
 USER_WD <- getwd()
 
+# Install necessary packages if not present yet 
+list.of.packages <- c("GEOquery", "affyio","affy", "hgu133a.db","hgu133acdf", "hgu133plus2.db","hgu133plus2cdf","sva","factoextra",
+                      "ggplot2","ordinal","cluster","ggfortify","biomaRt","piano", "snowfall", "snow","VennDiagram")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+
 #Change Working directory to the one containing scripts necessary to perform the analysis
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 #Source required functions

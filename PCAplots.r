@@ -1,7 +1,5 @@
 
 #Wrapper functions to inspect the data and look for batch effect
-library(cluster)
-library(ggfortify)
 
 #Function to plot the variance explement by the first 10 components
 variance_plot <- function(exp_data){

@@ -5,11 +5,7 @@
 
 
 #Piano analysis with GO terms
-library(biomaRt)
-library(piano)
-library(snowfall)
-library(snow)
-library(VennDiagram)
+
 
 
 

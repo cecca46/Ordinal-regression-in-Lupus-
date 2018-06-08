@@ -1,7 +1,5 @@
 
 
-require(sva)
-
 #Perform combat on the gene expression data to "remove" batch effect
 
 batch_mitigation <- function(edata, pheno){
