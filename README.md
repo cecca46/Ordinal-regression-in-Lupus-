@@ -157,6 +157,12 @@ As the slope of the fitted lines indicates the rate by which the expression of a
 |       11               |     RNASEH2A             |    6.22245656     |            2.84E-19    |
 |       12               |     TIMELESS             |    6.063382403    |            2.04E-17    |
 
+### xCell enrichment 
+
+xCell is a webtool that performs cell type enrichment analysis from gene expression data for 64 immune and stroma cell types. It is a gene signatures-based method learned from thousands of pure cell types from various sources. xCell applies a novel technique for reducing associations between closley related cell types. We provided as input to xCell our merged gene expression matrix composed by 51 samples and 13768 genes.
+
+
+
 
 ### License
 
