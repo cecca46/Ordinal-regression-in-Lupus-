@@ -14,6 +14,7 @@ This repository contains the following files:
 `Combat.r`: Function to mitigate the bach effect introduced by the use of different platforms.
 
 `OrdinalRegression.r`: Function to perform ordinal regression on the normalised and batch corrected gene expression matrix. It returns a list of significant genes (default significance thresold is 1e-06) ordered according to the slope of their beta coefficients. High positive beta means that the gene progressively upregulates with disease progression whereas small negative beta means that the gene progressively downregulated with disease progression. 
+Interestingly, the strongest correlation coefficient was found between eGFR numbers and Myocytes (rho = 0.564, pvalue = 1.618e-05) suggesting that enrichment of Myocytes amiliorates SLE condition.
 
 `MergedDatasetsInfo.csv`: Clinical information, publically available from [Nephroseq](https://www.nephroseq.org/resource/login.html)
 
