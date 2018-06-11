@@ -159,9 +159,12 @@ As the slope of the fitted lines indicates the rate by which the expression of a
 
 ### xCell enrichment 
 
-xCell is a webtool that performs cell type enrichment analysis from gene expression data for 64 immune and stroma cell types. It is a gene signatures-based method learned from thousands of pure cell types from various sources. xCell applies a novel technique for reducing associations between closley related cell types. We provided as input to xCell our merged gene expression matrix composed by 51 samples and 13768 genes.
+xCell is a webtool that performs cell type enrichment analysis from gene expression data for 64 immune and stroma cell types. It is a gene signatures-based method learned from thousands of pure cell types from various sources. xCell applies a novel technique for reducing associations between closley related cell types. <sup>2</sup> We provided as input to xCell our merged gene expression matrix composed by 51 samples and 13768 genes.
 
-
+<p align="center">
+     Non directional, directional up, mixed up intersection
+    <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/xCelHeatMap.png" width="700" height="700">
+</p>
 
 
 ### License
@@ -171,5 +174,7 @@ Distributed under the GNU GPLv3 License. See accompanying file LICENSE.txt or co
 
 ### Reference
 
-[Identifying therapeutic targets by combining transcriptional data with ordinal clinical measurements, Pirhaji et al. 2017](https://www.nature.com/articles/s41467-017-00353-6#Sec10)
+1. [Identifying therapeutic targets by combining transcriptional data with ordinal clinical measurements, Pirhaji et al. 2017](https://www.nature.com/articles/s41467-017-00353-6#Sec10)
+
+2. [xCell: digitally portraying the tissue cellular heterogeneity landscape, Dvir Aran et al. 2017](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5688663/)
 
