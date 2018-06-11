@@ -162,7 +162,6 @@ As the slope of the fitted lines indicates the rate by which the expression of a
 xCell is a webtool that performs cell type enrichment analysis from gene expression data for 64 immune and stroma cell types. It is a gene signatures-based method learned from thousands of pure cell types from various sources. xCell applies a novel technique for reducing associations between closley related cell types. <sup>2</sup> We provided as input to xCell our merged gene expression matrix composed by 51 samples and 13768 genes.
 
 <p align="center">
-     Non directional, directional up, mixed up intersection
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/xCelHeatMap.png" width="700" height="700">
 </p>
 
