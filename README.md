@@ -166,7 +166,7 @@ xCell is a webtool that performs cell type enrichment analysis from gene express
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/xCelHeatMap.png" width="700" height="700">
 </p>
 
-From the xCell output, among others general knwon trends can be observed for Macrophages and Monocytes; they are consistently upregulated in SLE condition with respect to healty controls. To assess the significance of these results, we correlated the enrichment scores for Macrophages and Monocytes to eGFR numbers. 
+From the xCell output, among others, general known trends can be observed for Macrophages and Monocytes; they are consistently upregulated in SLE condition with respect to healty controls. To assess the significance of these results, we correlated the enrichment scores for Macrophages and Monocytes to eGFR numbers. 
 As the activity of SLE is measured by eGFR we assumed a negative correlation between eGFR levels and enrichment scores obtained for Macrophages and Monocytes using xCell. The lower eGFR, the higher the enrichment score for Macrophages. We tested this hyphotesis using spearman correlation between eGFR and enrichment scores.
 
 Correlation between eGFR number and Macrophages yields a rho coefficient of -0.545 with a pvalue of 3.519e-05 while correlation between eGFR number and Monocytes yields a rho coefficient of -0.451 with a pvalue of 0.0008873.
