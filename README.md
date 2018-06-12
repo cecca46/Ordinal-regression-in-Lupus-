@@ -14,7 +14,7 @@ This repository contains the following files:
 `Combat.r`: Function to mitigate the bach effect introduced by the use of different platforms.
 
 `OrdinalRegression.r`: Function to perform ordinal regression on the normalised and batch corrected gene expression matrix. It returns a list of significant genes (default significance thresold is 1e-06) ordered according to the slope of their beta coefficients. High positive beta means that the gene progressively upregulates with disease progression whereas small negative beta means that the gene progressively downregulated with disease progression. 
-Interestingly, the strongest correlation coefficient was found between eGFR numbers and Myocytes (rho = 0.564, pvalue = 1.618e-05) suggesting that enrichment of Myocytes amiliorates SLE condition.
+
 
 `MergedDatasetsInfo.csv`: Clinical information, publically available from [Nephroseq](https://www.nephroseq.org/resource/login.html)
 
@@ -167,8 +167,10 @@ xCell is a webtool that performs cell type enrichment analysis from gene express
 </p>
 
 From the xCell output, among others general knwon trends can be observed for Macrophages and Monocytes; they are consistently upregulated in SLE condition with respect to healty controls. To assess the significance of these results, we correlated the enrichment scores for Macrophages and Monocytes to eGFR numbers. 
-As the activity of SLE is measured by eGFR we assumed a negative correlation between eGFR levels and enrichment scores obteined for Macrophages and Monocytes using xCell. The lower eGFR, the higher the enrichment score for Macrophages. We tested this hyphotesis using spearman correlation between eGFR and enrichment scores.
+As the activity of SLE is measured by eGFR we assumed a negative correlation between eGFR levels and enrichment scores obtained for Macrophages and Monocytes using xCell. The lower eGFR, the higher the enrichment score for Macrophages. We tested this hyphotesis using spearman correlation between eGFR and enrichment scores.
+
 Correlation between eGFR number and Macrophages yields a rho coefficient of -0.545 with a pvalue of 3.519e-05 while correlation between eGFR number and Monocytes yields a rho coefficient of -0.451 with a pvalue of 0.0008873.
+
 Interestingly, the strongest correlation coefficent was found to be between eGFR number and Myocytes (rho = 0.564, pvalue = 1.618e-05) suggesting that enrichment in Myocytes corresponds to a better SLE prognosis. 
 
 ### License
