@@ -51,6 +51,8 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroup.png" width="700" height="700">
 </p>
+
+
 *Fig 1: Principal component analysis (PCA) of gene expression measurements coloured according to the samples condition (Disease - Healthy)*
 
 
