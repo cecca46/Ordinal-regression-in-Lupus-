@@ -59,25 +59,27 @@ After merging, we inspect PCAs looking for possible clusters which denote a batc
 
 
 <p align="center">
-    Samples grouped by platform
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatform.png" width="700" height="700">
 </p>
+
+
+*Fig 2: Principal component analysis (PCA) of gene expression measurements coloured according to the sample platform (HG-U133A - HG-U133_Plus_2)*
 
 
 Clearly from the latter plots, there is strong batch effect driving the samples from the two different platforms far apart. The 3 healthy samples shown in the pictures, wrongly cluster with SLE samples as they were analysed using the same chip.
 We then tried to reduce platform specific effect using Combat, after quantile normalization on the expression matrix, while adjusting for the sample condition (SLE-LD).
 
 <p align="center">
-    Samples grouped by condition after Combat
      <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyGroupCombat%20.png" width="700" height="700">
 </p>
 
+*Fig 3: Principal component analysis (PCA) of gene expression measurements coloured according to the samples condition after Combat adjustment*
+
 <p align="center">
-    Samples grouped by platform after Combat
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/PCAbyPlatformCombat.png" width="700" height="700">
 </p>
 
-
+*Fig 4: Principal component analysis (PCA) of gene expression measurements coloured according to the sample platform after Combat adjustment*
 
 In the latter plots, the 3 living donor samples from platform HG-U133A cluster with the living donors from platform HG-U133_Plus_2. From these plots seem that the differences among the samples is now driven by biological differences, namely the SLE vs LD condition, and not by technical variation. 
 
@@ -99,30 +101,40 @@ Using the significance scores calculated using Ordinal regression, we performed 
 
 
 <p align="center">
-    Piano Distinct Directional Down 
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctDOWN.png" width="700" height="700">
 </p>
 
+*Fig 5: Piano enrichment: Distinct-down: Down-regulation (up and down are cancelled out)*
+
 <p align="center">
-    Piano Distinct Directional Up 
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DistinctUP.png" width="700" height="700">
 </p>
 
+*Fig 6: Piano enrichment: Distinct-up: Up-regulation (up and down are cancelled out)*
+
+
 <p align="center">
-    Piano Mixed Directional Down 
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/MixedDOWN.png" width="700" height="700">
 </p>
 
+*Fig 7: Piano enrichment: Mixed-down: Down-regulation (up and down are not cancelled out)*
+
+
 <p align="center">
-    Piano Mixed Directional Up
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/MixedUP.png" width="700" height="700">
 </p>
+
+*Fig 8: Piano enrichment: Mixed-up: Up-regulation (up and down are not cancelled out, a pathway can be mixed-up and mixed-down regulated at the same time)*
+
 
 
 <p align="center">
     Piano excluded directionality (non directional)
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/NonDirectional.png" width="700" height="700">
 </p>
+
+*Fig 9: Piano enrichment: Non-Directional: Differentially regulated (regardless the sign)*
+
 
 
 The following Venn Diagrams show the number of common enriched processes among the the non directional, directional up, mixed up and non directional, directional down, mixed down respectively:
