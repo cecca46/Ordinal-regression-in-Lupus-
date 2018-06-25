@@ -140,17 +140,21 @@ Using the significance scores calculated using Ordinal regression, we performed 
 The following Venn Diagrams show the number of common enriched processes among the the non directional, directional up, mixed up and non directional, directional down, mixed down respectively:
 
 <p align="center">
-     Non directional, directional up, mixed up intersection
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/UPIntersection.png" width="500" height="500">
 </p>
+
+*Fig 10: Intersection of enriched terms among non directional, directional up, mixed up piano results*
+
 
 **Upregulated common biological processes**: *immune system process, innate immune response,neutrophil degranulation,protein binding,extracellular region,apoptotic process,inflammatory response,leukocyte migration,regulation of immune response,defense response to virus,viral process,neutrophil chemotaxis,immune response,regulation of megakaryocyte differentiation,interferon-gamma-mediated signaling pathway,lipopolysaccharide-mediated signaling pathway,negative regulation of viral genome replication,type I interferon signaling pathway,regulation of inflammatory response,signaling pattern recognition receptor activity,CENP-A containing nucleosome assembly,response to virus,negative regulation of gene expression, epigenetic,phagocytosis, engulfment,B cell receptor signaling pathway,toll-like receptor TLR1:TLR2 signaling pathway,cellular response to triacyl bacterial lipopeptide,positive regulation of interleukin-8 secretion,chromatin silencing at rDNA,DNA replication-dependent nucleosome assembly,telomere organization,antigen processing and presentation of exogenous peptide antigen via MHC class I,2'-5'-oligoadenylate synthetase activity,myeloid dendritic cell activation involved in immune response,regulation of B cell apoptotic process*
 
 
 <p align="center">
-    Non directional, directional down, mixed down intersection
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/DOWNIntersection.png" width="700" height="500">
 </p>
+
+*Fig 11: Intersection of enriched terms among non directional, directional down, mixed down piano results*
+
 
 **Downregulated common biological processes**: *homophilic cell adhesion via plasma membrane adhesion molecules, regulation of cellular ketone metabolic process*
 
@@ -179,6 +183,9 @@ xCell is a webtool that performs cell type enrichment analysis from gene express
 <p align="center">
     <img src="https://github.com/cecca46/Ordinal-regression-in-Lupus-/blob/master/PLOT/xCelHeatMap.png" width="700" height="700">
 </p>
+
+*Fig 12: Heatmap showing the enrichement scores obteined by the xCell online tool*
+
 
 From the xCell output, among others, general known trends can be observed for Macrophages and Monocytes; they are consistently upregulated in SLE condition with respect to healty controls. To assess the significance of these results, we correlated the enrichment scores for Macrophages and Monocytes to eGFR numbers. 
 As the activity of SLE is measured by eGFR we assumed a negative correlation between eGFR levels and enrichment scores obtained for Macrophages and Monocytes using xCell. The lower eGFR, the higher the enrichment score for Macrophages. We tested this hyphotesis using spearman correlation between eGFR and enrichment scores.
